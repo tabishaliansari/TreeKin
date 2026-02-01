@@ -21,6 +21,7 @@ public class UserService {
         if (optionalUser.isPresent()) {
             throw new IllegalStateException("User with Id " + optionalUser.get().getId() + " already exists");
         }
+        if (user.getIsActive() == null) user.setIsActive(true);
         userRepository.save(user);
     }
 
