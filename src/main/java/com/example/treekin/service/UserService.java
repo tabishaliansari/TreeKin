@@ -24,6 +24,15 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public User findUserById(Integer id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            return optionalUser.get();
+        } else {
+            throw new IllegalStateException("User with Id " + id + " not found");
+        }
+    }
+
     public List<User> findAllUsers() {
         return userRepository.findAll();
     }
