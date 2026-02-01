@@ -38,4 +38,11 @@ public class UserController {
     public String helloWorld() {
         return userService.helloWorld();
     }
+
+    @DeleteMapping("/deleteById/{id}")
+    public void deleteById(
+            @PathVariable Integer id
+    ) {
+        userService.deleteUserById(id);
+    }
 }
